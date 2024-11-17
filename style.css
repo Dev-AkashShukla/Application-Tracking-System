@@ -1,0 +1,189 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  body {
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+  }
+  
+  .container {
+    background: #fff;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    padding: 30px;
+    width: 100%;
+    max-width: 700px;
+    animation: fadeIn 1.5s ease;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    color: #4facfe;
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: slideDown 1s ease;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  label {
+    font-weight: bold;
+    font-size: 1.1rem;
+  }
+  
+  textarea,
+  input[type='file'] {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+  }
+  
+  textarea:focus,
+  input[type='file']:focus {
+    border-color: #4facfe;
+    box-shadow: 0 0 10px rgba(79, 172, 254, 0.4);
+  }
+  
+  textarea {
+    min-height: 100px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    background: #4facfe;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    text-transform: uppercase;
+  }
+  
+  button:hover {
+    background: #00f2fe;
+    transform: scale(1.05);
+  }
+  
+  #response-section {
+    margin-top: 20px;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+    color: #4facfe;
+    margin-bottom: 10px;
+  }
+  
+  #response-output {
+    background: #f3f4f6; /* Slightly darker background for better contrast */
+    padding: 20px;
+    border-radius: 10px; /* Rounded corners for smoother edges */
+    border: 1px solid #e2e8f0; /* Softer border color for a modern look */
+    font-family: 'Roboto Mono', monospace; /* Clean and readable monospace font */
+    font-size: 1rem; /* Adjust font size for better readability */
+    color: #333; /* Darker text color for clarity */
+    line-height: 1.8; /* Increase line spacing for readability */
+    transition: all 0.3s ease; /* Smooth hover effect */
+    word-wrap: break-word; /* Prevent text overflow */
+    overflow-wrap: break-word;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    margin: 10px 0; /* Space around the section */
+  }
+  
+  /* Add padding and ensure text stays away from the edges */
+  #response-output p {
+    margin: 0;
+    padding: 0;
+    text-indent: 1em; /* Add indentation to first line of paragraphs */
+  }
+  
+  /* Hover effect for interactivity */
+  #response-output:hover {
+    border-color: #4facfe;
+    box-shadow: 0 6px 15px rgba(79, 172, 254, 0.2);
+  }
+  
+  
+  #response-output:hover {
+    border-color: #4facfe;
+    box-shadow: 0 0 10px rgba(79, 172, 254, 0.2);
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes slideDown {
+    from {
+      transform: translateY(-50px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 2rem;
+    }
+  
+    textarea,
+    input[type='file'] {
+      font-size: 0.9rem;
+    }
+  
+    button {
+      padding: 8px 15px;
+      font-size: 0.9rem;
+    }
+  
+    #response-output {
+      font-size: 0.9rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .container {
+      padding: 20px;
+    }
+  
+    h1 {
+      font-size: 1.8rem;
+    }
+  
+    label {
+      font-size: 1rem;
+    }
+  }
+  
