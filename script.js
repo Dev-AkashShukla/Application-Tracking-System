@@ -22,7 +22,7 @@ async function handleSubmit(action) {
   responseOutput.textContent = 'Processing...';
 
   try {
-      const response = await fetch('https://backend-pythonats-1.onrender.com/process', {
+      const response = await fetch(' http://backend_pythonats.com/process', {
           method: 'POST',
           body: formData,
       });
