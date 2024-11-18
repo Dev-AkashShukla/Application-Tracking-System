@@ -22,7 +22,7 @@ async function handleSubmit(action) {
   responseOutput.textContent = 'Processing...';
 
   try {
-      const response = await fetch(' http://backend_pythonats.com/process', {
+      const response = await fetch('https://backend-python-ats.vercel.app/process', {
           method: 'POST',
           body: formData,
       });
