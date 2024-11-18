@@ -1,16 +1,10 @@
-document.addEventListener('DOMContentLoaded', () => {
-  document.getElementById('reason-btn').addEventListener('click', () => handleSubmit('reason'));
-  document.getElementById('improve-btn').addEventListener('click', () => handleSubmit('improve'));
-  document.getElementById('keywords-btn').addEventListener('click', () => handleSubmit('keywords'));
-});
-
 async function handleSubmit(action) {
   const jobDescription = document.getElementById('job-description').value;
   const resumeFile = document.getElementById('resume-upload').files[0];
 
   if (!jobDescription || !resumeFile) {
-      alert('Please provide both the job description and resume.');
-      return;
+    alert('Please provide both the job description and resume.');
+    return;
   }
 
   const formData = new FormData();
@@ -22,23 +16,24 @@ async function handleSubmit(action) {
   responseOutput.textContent = 'Processing...';
 
   try {
-      const response = await fetch('https://backend-pythonats.onrender.com/process', {
-          method: 'POST',
-          body: formData,
-      });
+    const response = await fetch('https://backend-pythonats.onrender.com/process', {
+      method: 'POST',
+      body: formData,
+    });
 
-      if (!response.ok) {
-          throw new Error(`Server error: ${response.status}`);
-      }
+    if (!response.ok) {
+      const errorDetails = await response.text();
+      throw new Error(`Server error: ${response.status}. Details: ${errorDetails}`);
+    }
 
-      const result = await response.json();
-      if (result.error) {
-          responseOutput.textContent = `Error: ${result.error}`;
-      } else {
-          // Render Markdown as HTML using Marked.js
-      responseOutput.innerHTML = marked.parse(result.message);
+    const result = await response.json();
+    if (result.error) {
+      responseOutput.textContent = `Error: ${result.error}`;
+    } else {
+      responseOutput.innerHTML = marked.parse(result.message); // Render Markdown as HTML
     }
   } catch (error) {
-      responseOutput.textContent = `Error: ${error.message}`;
+    responseOutput.textContent = `Error: ${error.message}`;
+    console.error('Fetch error:', error); // Log full error for debugging
   }
 }
